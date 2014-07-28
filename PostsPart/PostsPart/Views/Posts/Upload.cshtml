@@ -1,0 +1,38 @@
+﻿@model PostsPart.PostTable
+
+@{
+    ViewBag.Title = "Upload";
+}
+
+<h2>Upload</h2>
+@using (Html.BeginForm("Upload", "Posts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <table>
+        <tr>
+            <td>Select file: </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.File, new { type="file"})
+                @Html.ValidationMessage("CustomMessage")
+            </td>
+        </tr>
+        <tr>
+            <td>Whats on your mind: </td>
+            <td>
+                @Html.TextAreaFor(Model => Model.TextPost)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Add a title: 
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.PostTitle)
+                @Html.ValidationMessage("CustomMessage")
+            </td>
+            <td>
+                <input type="submit" value="Post" />
+            </td>
+        </tr>
+    </table>
+}

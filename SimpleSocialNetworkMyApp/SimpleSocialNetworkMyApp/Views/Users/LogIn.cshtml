@@ -1,0 +1,54 @@
+﻿@model SimpleSocialNetworkMyApp.Views.UserRegistration
+
+@{
+    ViewBag.Title = "LogIn";
+}
+
+<h2>LogIn</h2>
+
+@using (Html.BeginForm("LogIn", "Users", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    if (@ViewBag.Message != null)
+    {
+        <div style="font-family:Arial; border:1px solid red">
+            @ViewBag.Message
+        </div> 
+    }
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.UserName)
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.UserName)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.UserName)
+            </td>
+            <td>
+                @Html.LabelFor(a => a.Password)
+            </td>
+            <td>
+                @Html.EditorFor(a => a.Password)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.Password)
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="submit" value="Login" />
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td>@Html.ActionLink("Registracija", "Create")</td>
+        </tr>
+    </table>
+}

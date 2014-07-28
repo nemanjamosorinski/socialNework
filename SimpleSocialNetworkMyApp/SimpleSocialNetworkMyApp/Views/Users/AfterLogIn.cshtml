@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "AfterLogIn";
+}
+
+<h2>AfterLogIn</h2>
+
+@if (Session["LoggedUserName"] != null)
+{
+    <text>
+        Welcome, @Session["LoggedUserName"].ToString()
+    </text>
+    
+    <table style="width:100%;">
+    <tr>
+        <td>Napišite novi status:</td>
+        <td></td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></table>
+}

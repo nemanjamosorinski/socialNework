@@ -1,0 +1,69 @@
+﻿@model List<FinalPostPart.Models.PostTable>
+
+@{
+    ViewBag.Title = "ListAllPosts";
+}
+
+<h2>Welcome to you profile...</h2>
+
+<p>
+    @Html.ActionLink("New Post", "Upload")
+</p>
+<table>
+
+    @{
+        int j = 1;
+        
+        while (j < Model.Count())
+        {
+            
+            if (Model[j].ImageData != null)
+            {
+                <tr>
+                    <td>
+                        <br />
+                        @Html.DisplayFor(m => Model[j].PostTitle).ToString()
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model[j].ImageData, 0, Model[j].ImageData.Length)" width="500" />
+                    </td>
+                    <td>
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+        
+                <tr>
+                    <td>
+                        @Html.ActionLink("Edit", "Posts", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Posts", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+            
+            if (Model[j].TextPost != null)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => Model[j].TextPost).ToString()
+                    </td>
+                    <td>
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+            j++;
+        }
+    }
+
+</table>

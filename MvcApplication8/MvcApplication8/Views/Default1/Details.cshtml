@@ -1,0 +1,29 @@
+﻿@model MvcApplication8.Models.Class1
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Class1</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImageComment)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImageComment)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ImageMimoType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ImageMimoType)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
